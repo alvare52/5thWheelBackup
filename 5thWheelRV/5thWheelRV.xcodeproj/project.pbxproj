@@ -13,7 +13,26 @@
 		1BE77F7F240C54F00077B8D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BE77F7E240C54F00077B8D3 /* Assets.xcassets */; };
 		1BE77F82240C54F00077B8D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BE77F80240C54F00077B8D3 /* LaunchScreen.storyboard */; };
 		1BE77F90240C5B690077B8D3 /* ListingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77F8F240C5B690077B8D3 /* ListingsTableViewController.swift */; };
+		1BE77FB4240D6ED30077B8D3 /* WheelRVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FB3240D6ED30077B8D3 /* WheelRVTests.swift */; };
+		1BE77FC2240D6EE10077B8D3 /* WheelRVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FC1240D6EE10077B8D3 /* WheelRVUITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1BE77FB6240D6ED30077B8D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1BE77F6A240C54EB0077B8D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1BE77F71240C54EB0077B8D3;
+			remoteInfo = 5thWheelRV;
+		};
+		1BE77FC4240D6EE10077B8D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1BE77F6A240C54EB0077B8D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1BE77F71240C54EB0077B8D3;
+			remoteInfo = 5thWheelRV;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1BE77F72240C54EB0077B8D3 /* 5thWheelRV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 5thWheelRV.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +43,12 @@
 		1BE77F81240C54F00077B8D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1BE77F83240C54F00077B8D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BE77F8F240C5B690077B8D3 /* ListingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsTableViewController.swift; sourceTree = "<group>"; };
+		1BE77FB1240D6ED30077B8D3 /* WheelRVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WheelRVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BE77FB3240D6ED30077B8D3 /* WheelRVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelRVTests.swift; sourceTree = "<group>"; };
+		1BE77FB5240D6ED30077B8D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BE77FBF240D6EE10077B8D3 /* WheelRVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WheelRVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BE77FC1240D6EE10077B8D3 /* WheelRVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelRVUITests.swift; sourceTree = "<group>"; };
+		1BE77FC3240D6EE10077B8D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		351FE45F9330037E7AB361DF /* Pods-5thWheelRV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5thWheelRV.release.xcconfig"; path = "Target Support Files/Pods-5thWheelRV/Pods-5thWheelRV.release.xcconfig"; sourceTree = "<group>"; };
 		6A30E04C464BE7ED6CBCCB24 /* Pods_5thWheelRV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_5thWheelRV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA10721B09424D8DB1E8B4DE /* Pods-5thWheelRV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5thWheelRV.debug.xcconfig"; path = "Target Support Files/Pods-5thWheelRV/Pods-5thWheelRV.debug.xcconfig"; sourceTree = "<group>"; };
@@ -37,6 +62,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1BE77FAE240D6ED30077B8D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BE77FBC240D6EE10077B8D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -44,6 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				1BE77F74240C54EB0077B8D3 /* 5thWheelRV */,
+				1BE77FB2240D6ED30077B8D3 /* WheelRVTests */,
+				1BE77FC0240D6EE10077B8D3 /* WheelRVUITests */,
 				1BE77F73240C54EB0077B8D3 /* Products */,
 				8D383C278B239CAED47E73B7 /* Pods */,
 				EA9ACC9560EDBE1FAF28D9A2 /* Frameworks */,
@@ -54,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				1BE77F72240C54EB0077B8D3 /* 5thWheelRV.app */,
+				1BE77FB1240D6ED30077B8D3 /* WheelRVTests.xctest */,
+				1BE77FBF240D6EE10077B8D3 /* WheelRVUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +155,24 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		1BE77FB2240D6ED30077B8D3 /* WheelRVTests */ = {
+			isa = PBXGroup;
+			children = (
+				1BE77FB3240D6ED30077B8D3 /* WheelRVTests.swift */,
+				1BE77FB5240D6ED30077B8D3 /* Info.plist */,
+			);
+			path = WheelRVTests;
+			sourceTree = "<group>";
+		};
+		1BE77FC0240D6EE10077B8D3 /* WheelRVUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1BE77FC1240D6EE10077B8D3 /* WheelRVUITests.swift */,
+				1BE77FC3240D6EE10077B8D3 /* Info.plist */,
+			);
+			path = WheelRVUITests;
+			sourceTree = "<group>";
+		};
 		8D383C278B239CAED47E73B7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +212,42 @@
 			productReference = 1BE77F72240C54EB0077B8D3 /* 5thWheelRV.app */;
 			productType = "com.apple.product-type.application";
 		};
+		1BE77FB0240D6ED30077B8D3 /* WheelRVTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BE77FB8240D6ED30077B8D3 /* Build configuration list for PBXNativeTarget "WheelRVTests" */;
+			buildPhases = (
+				1BE77FAD240D6ED30077B8D3 /* Sources */,
+				1BE77FAE240D6ED30077B8D3 /* Frameworks */,
+				1BE77FAF240D6ED30077B8D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1BE77FB7240D6ED30077B8D3 /* PBXTargetDependency */,
+			);
+			name = WheelRVTests;
+			productName = WheelRVTests;
+			productReference = 1BE77FB1240D6ED30077B8D3 /* WheelRVTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1BE77FBE240D6EE10077B8D3 /* WheelRVUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BE77FC6240D6EE10077B8D3 /* Build configuration list for PBXNativeTarget "WheelRVUITests" */;
+			buildPhases = (
+				1BE77FBB240D6EE10077B8D3 /* Sources */,
+				1BE77FBC240D6EE10077B8D3 /* Frameworks */,
+				1BE77FBD240D6EE10077B8D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1BE77FC5240D6EE10077B8D3 /* PBXTargetDependency */,
+			);
+			name = WheelRVUITests;
+			productName = WheelRVUITests;
+			productReference = 1BE77FBF240D6EE10077B8D3 /* WheelRVUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -163,6 +260,14 @@
 				TargetAttributes = {
 					1BE77F71240C54EB0077B8D3 = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					1BE77FB0240D6ED30077B8D3 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 1BE77F71240C54EB0077B8D3;
+					};
+					1BE77FBE240D6EE10077B8D3 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 1BE77F71240C54EB0077B8D3;
 					};
 				};
 			};
@@ -180,6 +285,8 @@
 			projectRoot = "";
 			targets = (
 				1BE77F71240C54EB0077B8D3 /* 5thWheelRV */,
+				1BE77FB0240D6ED30077B8D3 /* WheelRVTests */,
+				1BE77FBE240D6EE10077B8D3 /* WheelRVUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -192,6 +299,20 @@
 				1BE77F82240C54F00077B8D3 /* LaunchScreen.storyboard in Resources */,
 				1BE77F7F240C54F00077B8D3 /* Assets.xcassets in Resources */,
 				1BE77F7D240C54EB0077B8D3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BE77FAF240D6ED30077B8D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BE77FBD240D6EE10077B8D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +371,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1BE77FAD240D6ED30077B8D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BE77FB4240D6ED30077B8D3 /* WheelRVTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BE77FBB240D6EE10077B8D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BE77FC2240D6EE10077B8D3 /* WheelRVUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1BE77FB7240D6ED30077B8D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1BE77F71240C54EB0077B8D3 /* 5thWheelRV */;
+			targetProxy = 1BE77FB6240D6ED30077B8D3 /* PBXContainerItemProxy */;
+		};
+		1BE77FC5240D6EE10077B8D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1BE77F71240C54EB0077B8D3 /* 5thWheelRV */;
+			targetProxy = 1BE77FC4240D6EE10077B8D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1BE77F7B240C54EB0077B8D3 /* Main.storyboard */ = {
@@ -424,6 +574,84 @@
 			};
 			name = Release;
 		};
+		1BE77FB9240D6ED30077B8D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XFZ73X2DJQ;
+				INFOPLIST_FILE = WheelRVTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jorgealvarez.WheelRVTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/5thWheelRV.app/5thWheelRV";
+			};
+			name = Debug;
+		};
+		1BE77FBA240D6ED30077B8D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XFZ73X2DJQ;
+				INFOPLIST_FILE = WheelRVTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jorgealvarez.WheelRVTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/5thWheelRV.app/5thWheelRV";
+			};
+			name = Release;
+		};
+		1BE77FC7240D6EE10077B8D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XFZ73X2DJQ;
+				INFOPLIST_FILE = WheelRVUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jorgealvarez.WheelRVUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = 5thWheelRV;
+			};
+			name = Debug;
+		};
+		1BE77FC8240D6EE10077B8D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XFZ73X2DJQ;
+				INFOPLIST_FILE = WheelRVUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jorgealvarez.WheelRVUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = 5thWheelRV;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -441,6 +669,24 @@
 			buildConfigurations = (
 				1BE77F87240C54F00077B8D3 /* Debug */,
 				1BE77F88240C54F00077B8D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BE77FB8240D6ED30077B8D3 /* Build configuration list for PBXNativeTarget "WheelRVTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BE77FB9240D6ED30077B8D3 /* Debug */,
+				1BE77FBA240D6ED30077B8D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1BE77FC6240D6EE10077B8D3 /* Build configuration list for PBXNativeTarget "WheelRVUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BE77FC7240D6EE10077B8D3 /* Debug */,
+				1BE77FC8240D6EE10077B8D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
