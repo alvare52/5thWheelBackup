@@ -15,6 +15,12 @@
 		1BE77F90240C5B690077B8D3 /* ListingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77F8F240C5B690077B8D3 /* ListingsTableViewController.swift */; };
 		1BE77FB4240D6ED30077B8D3 /* WheelRVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FB3240D6ED30077B8D3 /* WheelRVTests.swift */; };
 		1BE77FC2240D6EE10077B8D3 /* WheelRVUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FC1240D6EE10077B8D3 /* WheelRVUITests.swift */; };
+		1BE77FCA240ED3B70077B8D3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FC9240ED3B70077B8D3 /* CoreDataStack.swift */; };
+		1BE77FCD240ED3EC0077B8D3 /* Listings.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FCB240ED3EC0077B8D3 /* Listings.xcdatamodeld */; };
+		1BE77FCF240ED50C0077B8D3 /* ListingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FCE240ED50C0077B8D3 /* ListingController.swift */; };
+		1BE77FD1240ED6CB0077B8D3 /* ListingRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FD0240ED6CB0077B8D3 /* ListingRepresentation.swift */; };
+		1BE77FD3240EDC890077B8D3 /* Listing+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FD2240EDC890077B8D3 /* Listing+Convenience.swift */; };
+		1BE77FD5240F10210077B8D3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FD4240F10210077B8D3 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		1BE77FBF240D6EE10077B8D3 /* WheelRVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WheelRVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE77FC1240D6EE10077B8D3 /* WheelRVUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelRVUITests.swift; sourceTree = "<group>"; };
 		1BE77FC3240D6EE10077B8D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BE77FC9240ED3B70077B8D3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		1BE77FCC240ED3EC0077B8D3 /* Listings.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Listings.xcdatamodel; sourceTree = "<group>"; };
+		1BE77FCE240ED50C0077B8D3 /* ListingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingController.swift; sourceTree = "<group>"; };
+		1BE77FD0240ED6CB0077B8D3 /* ListingRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingRepresentation.swift; sourceTree = "<group>"; };
+		1BE77FD2240EDC890077B8D3 /* Listing+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Listing+Convenience.swift"; sourceTree = "<group>"; };
+		1BE77FD4240F10210077B8D3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		351FE45F9330037E7AB361DF /* Pods-5thWheelRV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5thWheelRV.release.xcconfig"; path = "Target Support Files/Pods-5thWheelRV/Pods-5thWheelRV.release.xcconfig"; sourceTree = "<group>"; };
 		6A30E04C464BE7ED6CBCCB24 /* Pods_5thWheelRV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_5thWheelRV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA10721B09424D8DB1E8B4DE /* Pods-5thWheelRV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5thWheelRV.debug.xcconfig"; path = "Target Support Files/Pods-5thWheelRV/Pods-5thWheelRV.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +148,10 @@
 		1BE77F8C240C574F0077B8D3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1BE77FC9240ED3B70077B8D3 /* CoreDataStack.swift */,
+				1BE77FCB240ED3EC0077B8D3 /* Listings.xcdatamodeld */,
+				1BE77FD0240ED6CB0077B8D3 /* ListingRepresentation.swift */,
+				1BE77FD2240EDC890077B8D3 /* Listing+Convenience.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -143,6 +159,7 @@
 		1BE77F8D240C57570077B8D3 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1BE77FCE240ED50C0077B8D3 /* ListingController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -151,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				1BE77F8F240C5B690077B8D3 /* ListingsTableViewController.swift */,
+				1BE77FD4240F10210077B8D3 /* DetailViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -365,9 +383,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BE77FD5240F10210077B8D3 /* DetailViewController.swift in Sources */,
 				1BE77F76240C54EB0077B8D3 /* AppDelegate.swift in Sources */,
 				1BE77F78240C54EB0077B8D3 /* SceneDelegate.swift in Sources */,
 				1BE77F90240C5B690077B8D3 /* ListingsTableViewController.swift in Sources */,
+				1BE77FCD240ED3EC0077B8D3 /* Listings.xcdatamodeld in Sources */,
+				1BE77FCF240ED50C0077B8D3 /* ListingController.swift in Sources */,
+				1BE77FCA240ED3B70077B8D3 /* CoreDataStack.swift in Sources */,
+				1BE77FD3240EDC890077B8D3 /* Listing+Convenience.swift in Sources */,
+				1BE77FD1240ED6CB0077B8D3 /* ListingRepresentation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,6 +716,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1BE77FCB240ED3EC0077B8D3 /* Listings.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1BE77FCC240ED3EC0077B8D3 /* Listings.xcdatamodel */,
+			);
+			currentVersion = 1BE77FCC240ED3EC0077B8D3 /* Listings.xcdatamodel */;
+			path = Listings.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1BE77F6A240C54EB0077B8D3 /* Project object */;
 }
