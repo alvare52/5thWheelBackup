@@ -35,7 +35,6 @@ class ListingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        performSegue(withIdentifier: "LoginModalSegue", sender: self)
     }
 
     // MARK: - Table view data source

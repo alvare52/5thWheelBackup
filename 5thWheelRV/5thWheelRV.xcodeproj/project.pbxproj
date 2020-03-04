@@ -23,6 +23,8 @@
 		1BE77FD5240F10210077B8D3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FD4240F10210077B8D3 /* DetailViewController.swift */; };
 		1BE77FD72410472C0077B8D3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FD62410472C0077B8D3 /* LoginViewController.swift */; };
 		1BE77FD9241051FF0077B8D3 /* RVOwnerListingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FD8241051FF0077B8D3 /* RVOwnerListingsTableViewController.swift */; };
+		1BE77FDB241061AE0077B8D3 /* RVOwnerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FDA241061AE0077B8D3 /* RVOwnerDetailViewController.swift */; };
+		1BE77FDD241061CE0077B8D3 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FDC241061CE0077B8D3 /* SearchResultsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		1BE77FD4240F10210077B8D3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1BE77FD62410472C0077B8D3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1BE77FD8241051FF0077B8D3 /* RVOwnerListingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVOwnerListingsTableViewController.swift; sourceTree = "<group>"; };
+		1BE77FDA241061AE0077B8D3 /* RVOwnerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVOwnerDetailViewController.swift; sourceTree = "<group>"; };
+		1BE77FDC241061CE0077B8D3 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		351FE45F9330037E7AB361DF /* Pods-5thWheelRV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5thWheelRV.release.xcconfig"; path = "Target Support Files/Pods-5thWheelRV/Pods-5thWheelRV.release.xcconfig"; sourceTree = "<group>"; };
 		6A30E04C464BE7ED6CBCCB24 /* Pods_5thWheelRV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_5thWheelRV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA10721B09424D8DB1E8B4DE /* Pods-5thWheelRV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5thWheelRV.debug.xcconfig"; path = "Target Support Files/Pods-5thWheelRV/Pods-5thWheelRV.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,10 +175,12 @@
 		1BE77F8E240C57600077B8D3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1BE77FD62410472C0077B8D3 /* LoginViewController.swift */,
 				1BE77F8F240C5B690077B8D3 /* ListingsTableViewController.swift */,
 				1BE77FD4240F10210077B8D3 /* DetailViewController.swift */,
-				1BE77FD62410472C0077B8D3 /* LoginViewController.swift */,
 				1BE77FD8241051FF0077B8D3 /* RVOwnerListingsTableViewController.swift */,
+				1BE77FDA241061AE0077B8D3 /* RVOwnerDetailViewController.swift */,
+				1BE77FDC241061CE0077B8D3 /* SearchResultsTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -394,12 +400,14 @@
 				1BE77F78240C54EB0077B8D3 /* SceneDelegate.swift in Sources */,
 				1BE77F90240C5B690077B8D3 /* ListingsTableViewController.swift in Sources */,
 				1BE77FCD240ED3EC0077B8D3 /* Listings.xcdatamodeld in Sources */,
+				1BE77FDD241061CE0077B8D3 /* SearchResultsTableViewController.swift in Sources */,
 				1BE77FCF240ED50C0077B8D3 /* ListingController.swift in Sources */,
 				1BE77FCA240ED3B70077B8D3 /* CoreDataStack.swift in Sources */,
 				1BE77FD3240EDC890077B8D3 /* Listing+Convenience.swift in Sources */,
 				1BE77FD72410472C0077B8D3 /* LoginViewController.swift in Sources */,
 				1BE77FD1240ED6CB0077B8D3 /* ListingRepresentation.swift in Sources */,
 				1BE77FD9241051FF0077B8D3 /* RVOwnerListingsTableViewController.swift in Sources */,
+				1BE77FDB241061AE0077B8D3 /* RVOwnerDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

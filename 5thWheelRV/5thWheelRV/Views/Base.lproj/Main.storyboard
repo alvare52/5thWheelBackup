@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jT1-ex-EKm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2RF-Qy-e10">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -30,6 +30,9 @@
                                             <segment title="Land Owner"/>
                                             <segment title="RV Owner"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="ownerTypeSegmentChanged:" destination="2RF-Qy-e10" eventType="valueChanged" id="Vyp-eP-dxX"/>
+                                        </connections>
                                     </segmentedControl>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZFQ-As-ZNq">
                                         <rect key="frame" x="0.0" y="95" width="374" height="32"/>
@@ -37,6 +40,9 @@
                                             <segment title="Sign Up"/>
                                             <segment title="Log In"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="signInSegmentControlChanged:" destination="2RF-Qy-e10" eventType="valueChanged" id="NoL-WQ-WxM"/>
+                                        </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="31r-cM-Xmv">
                                         <rect key="frame" x="0.0" y="134" width="374" height="34"/>
@@ -52,7 +58,10 @@
                                         <rect key="frame" x="0.0" y="218" width="374" height="30"/>
                                         <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Enter"/>
+                                        <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="signInButtonTapped:" destination="2RF-Qy-e10" eventType="touchUpInside" id="W5m-Py-utf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8t-jN-DkW">
                                         <rect key="frame" x="0.0" y="256" width="374" height="30"/>
@@ -73,10 +82,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xb9-CS-Kdf"/>
                     </view>
+                    <connections>
+                        <outlet property="ownerTypeSegmentControl" destination="prt-gj-Sed" id="lue-NR-tWB"/>
+                        <outlet property="passwordTextField" destination="JOC-W8-ZZc" id="dCO-Lt-ZmA"/>
+                        <outlet property="signInButtonLabel" destination="yG0-67-gtc" id="4rJ-vP-hNu"/>
+                        <outlet property="signInSegmentControl" destination="ZFQ-As-ZNq" id="QYe-mh-jIh"/>
+                        <outlet property="usernameTextField" destination="31r-cM-Xmv" id="yak-h3-mtJ"/>
+                        <segue destination="eVO-A9-Ujc" kind="presentation" identifier="PresentLandOwnerSegue" modalPresentationStyle="fullScreen" id="e3I-hy-0Or"/>
+                        <segue destination="jT1-ex-EKm" kind="presentation" identifier="PresentRVOwnerSegue" modalPresentationStyle="fullScreen" id="pX9-5D-E4c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OvU-Hj-DNf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1063.768115942029" y="-504.24107142857139"/>
+            <point key="canvasLocation" x="-565" y="392"/>
         </scene>
         <!--Land Owner's Listings-->
         <scene sceneID="GyI-3m-rtj">
@@ -128,13 +146,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="2RF-Qy-e10" kind="presentation" identifier="LoginModalSegue" modalPresentationStyle="fullScreen" id="EEm-se-2Cz"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ca0-D6-Ie0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076.8115942028987" y="178.79464285714286"/>
+            <point key="canvasLocation" x="288" y="-19"/>
         </scene>
         <!--RV Owner's Listings-->
         <scene sceneID="CcB-49-Xfk">
@@ -188,12 +203,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOW-lo-HjX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077" y="903"/>
+            <point key="canvasLocation" x="287" y="785"/>
         </scene>
         <!--Available Listing-->
         <scene sceneID="2rP-S3-cm1">
             <objects>
-                <viewController id="9SX-QO-UCR" sceneMemberID="viewController">
+                <viewController id="9SX-QO-UCR" customClass="RVOwnerDetailViewController" customModule="_thWheelRV" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XNY-S5-Wr0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -226,21 +241,31 @@
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="reserveButtonTapped:" destination="9SX-QO-UCR" eventType="touchUpInside" id="Seg-Ht-vUE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Wv-S4-efY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Available Listing" id="A5N-BO-PEI"/>
+                    <connections>
+                        <outlet property="datePicker" destination="oLS-Wv-Vw6" id="sJW-wb-vTQ"/>
+                        <outlet property="listingImageView" destination="Dtm-Rx-ueg" id="Ab2-Ca-kJI"/>
+                        <outlet property="locationLabel" destination="1gz-cX-hUU" id="cQL-cv-sPO"/>
+                        <outlet property="priceLabel" destination="5SG-Am-URU" id="uho-4O-cpT"/>
+                        <outlet property="reserveButtonLabel" destination="r0C-Sj-1dU" id="haa-Jp-zza"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofo-Am-t4E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1911.594202898551" y="902.67857142857133"/>
+            <point key="canvasLocation" x="1077" y="785"/>
         </scene>
         <!--Search Listings-->
         <scene sceneID="QTM-dU-LSu">
             <objects>
-                <tableViewController id="wcN-iW-EDn" sceneMemberID="viewController">
+                <tableViewController id="wcN-iW-EDn" customClass="SearchResultsTableViewController" customModule="_thWheelRV" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kUz-Ix-c3u">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -282,10 +307,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Search Listings" id="wbR-rt-Jib"/>
+                    <connections>
+                        <outlet property="searchBar" destination="UKH-B2-ppE" id="ibb-zX-KFs"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcB-7f-s1P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077" y="1586"/>
+            <point key="canvasLocation" x="668" y="1519"/>
         </scene>
         <!--Listing-->
         <scene sceneID="Seb-sW-vbj">
@@ -346,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VyJ-wq-ea8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1911.594202898551" y="174.77678571428569"/>
+            <point key="canvasLocation" x="1077" y="-19"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TJK-Ir-FtC">
@@ -364,7 +392,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PHQ-Jj-umw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="166.66666666666669" y="178.79464285714286"/>
+            <point key="canvasLocation" x="-565" y="-317"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YQ6-vN-Wot">
@@ -383,7 +411,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6bj-wy-0ER" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="167" y="903"/>
+            <point key="canvasLocation" x="-565" y="1097"/>
         </scene>
     </scenes>
     <resources>
