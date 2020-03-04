@@ -22,6 +22,7 @@
 		1BE77FD3240EDC890077B8D3 /* Listing+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FD2240EDC890077B8D3 /* Listing+Convenience.swift */; };
 		1BE77FD5240F10210077B8D3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FD4240F10210077B8D3 /* DetailViewController.swift */; };
 		1BE77FD72410472C0077B8D3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FD62410472C0077B8D3 /* LoginViewController.swift */; };
+		1BE77FD9241051FF0077B8D3 /* RVOwnerListingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FD8241051FF0077B8D3 /* RVOwnerListingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		1BE77FD2240EDC890077B8D3 /* Listing+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Listing+Convenience.swift"; sourceTree = "<group>"; };
 		1BE77FD4240F10210077B8D3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		1BE77FD62410472C0077B8D3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1BE77FD8241051FF0077B8D3 /* RVOwnerListingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RVOwnerListingsTableViewController.swift; sourceTree = "<group>"; };
 		351FE45F9330037E7AB361DF /* Pods-5thWheelRV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5thWheelRV.release.xcconfig"; path = "Target Support Files/Pods-5thWheelRV/Pods-5thWheelRV.release.xcconfig"; sourceTree = "<group>"; };
 		6A30E04C464BE7ED6CBCCB24 /* Pods_5thWheelRV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_5thWheelRV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA10721B09424D8DB1E8B4DE /* Pods-5thWheelRV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5thWheelRV.debug.xcconfig"; path = "Target Support Files/Pods-5thWheelRV/Pods-5thWheelRV.debug.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				1BE77F8F240C5B690077B8D3 /* ListingsTableViewController.swift */,
 				1BE77FD4240F10210077B8D3 /* DetailViewController.swift */,
 				1BE77FD62410472C0077B8D3 /* LoginViewController.swift */,
+				1BE77FD8241051FF0077B8D3 /* RVOwnerListingsTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				1BE77FD3240EDC890077B8D3 /* Listing+Convenience.swift in Sources */,
 				1BE77FD72410472C0077B8D3 /* LoginViewController.swift in Sources */,
 				1BE77FD1240ED6CB0077B8D3 /* ListingRepresentation.swift in Sources */,
+				1BE77FD9241051FF0077B8D3 /* RVOwnerListingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
