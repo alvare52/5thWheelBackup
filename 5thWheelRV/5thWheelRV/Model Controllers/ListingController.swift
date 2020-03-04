@@ -117,6 +117,7 @@ class ListingController {
         let uuid = listing.identifier ?? UUID()
         let requestURL = baseUrl.appendingPathComponent(uuid.uuidString).appendingPathExtension("json")
         print("requestURL = \(requestURL)")
+        // change back to requestURL
         var request = URLRequest(url: requestURL)
         request.httpMethod = "PUT"
 

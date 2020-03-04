@@ -35,6 +35,7 @@ class ListingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        performSegue(withIdentifier: "LoginModalSegue", sender: self)
     }
 
     // MARK: - Table view data source
@@ -85,12 +86,12 @@ class ListingsTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+
 //        if segue.identifier == "LoginModalSegue" {
 //            guard let destination = segue.destination as? LoginViewController else {return}
-//            destination.userController = self.userController
+//            destination.listingController = self.listingController
 //        }
-        
+
         // DetailViewController (to ADD plant)
         if segue.identifier == "AddListingSegue" {
             print("AddListingSegue")
@@ -101,7 +102,8 @@ class ListingsTableViewController: UITableViewController {
         // DetailViewController (to EDIT plant)
         if segue.identifier == "EditListingSegue" {
             print("EditListingSegue")
-            if let detailVC = segue.destination as? DetailViewController, let indexPath = tableView.indexPathForSelectedRow {
+            if let detailVC = segue.destination as? DetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow {
                 detailVC.listingController = self.listingController
                 detailVC.listing = fetchedResultsController.object(at: indexPath)
             }
