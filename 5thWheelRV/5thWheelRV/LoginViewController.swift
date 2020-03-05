@@ -16,6 +16,8 @@ enum LoginType {
 class LoginViewController: UIViewController {
 
     var loginType = LoginType.signUp
+    var userController = UserController()
+    var alerter = AlertMaker()
 
     @IBOutlet weak var ownerTypeSegmentControl: UISegmentedControl!
     @IBOutlet weak var signInSegmentControl: UISegmentedControl!
@@ -47,7 +49,39 @@ class LoginViewController: UIViewController {
     @IBAction func skipButtonTapped(_ sender: UIButton) {
         signInButtonLabel.performFlare()
         //dismiss(animated: true, completion: nil)
+
+        guard let username = usernameTextField.text, let password = passwordTextField.text,
+            !username.isEmpty, !password.isEmpty else { return }
+        // LAND OWNER FIRST
+        let user = User(identifier: UUID(), username: username, password: password, isLandOwner: true)
+        userController.checkIfUserExists(user: user) { (result) in
+            do {
+                let message = try result.get()
+                DispatchQueue.main.async {
+                    print("SUCCESS signing up: \(user)")
+                    self.alerter.makeAlert(viewController: self,
+                                           title: "Sign Up Success",
+                                           message: "You have successfully signed up")
+                }
+            } catch {
+                if let error = error as? NetworkError {
+                    switch error {
+                    case .existingUser:
+                        print("User already exist: ")
+                        DispatchQueue.main.async {
+                            print("user exists")
+                            self.alerter.makeAlert(viewController: self,
+                                                   title: "Error Signing Up",
+                                                   message: "This username and password already exists")
+                        }
+                    default:
+                        print("Generic Error in LIVC")
+                    }
+                }
+            }
+        }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
