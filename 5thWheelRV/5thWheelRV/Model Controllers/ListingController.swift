@@ -115,9 +115,15 @@ class ListingController {
     /// Send a created or updated listing to the server
     func sendListingToServer(listing: Listing, completion: @escaping CompletionHandler = { _ in }) {
         let uuid = listing.identifier ?? UUID()
-        let requestURL = baseUrl.appendingPathComponent(uuid.uuidString).appendingPathExtension("json")
+        
+        // NEW
+        var requestURL = baseUrl.appendingPathComponent("listings")
+        requestURL = requestURL.appendingPathComponent(uuid.uuidString).appendingPathExtension("json")
+        // OLD
+        //let requestURL = baseUrl.appendingPathComponent(uuid.uuidString).appendingPathExtension("json")
+        
         print("requestURL = \(requestURL)")
-        // change back to requestURL
+        // changes back to requestURL
         var request = URLRequest(url: requestURL)
         request.httpMethod = "PUT"
 

@@ -8,6 +8,12 @@
 
 import Foundation
 
+/// User currently signed in. All properties MUST be overwritten. "user", "password", LO = false
+var globalUser = User(identifier: UUID.init(uuidString: "CF22C476-403E-4451-825D-3C84042B1B77")!,
+                      username: "user",
+                      password: "pass",
+                      isLandOwner: false)
+
 enum NetworkError: Error {
     case noAuth
     case badAuth
@@ -63,7 +69,7 @@ class UserController {
     /// Check if user already exists on server???
     func checkIfUserExists(user: User, completion: @escaping (Result<String, NetworkError>) -> Void) {
         let requestUrl = baseUrl.appendingPathComponent("users").appendingPathExtension("json")
-        
+
         URLSession.shared.dataTask(with: requestUrl) { (data, _, error) in
             if let error = error {
                 print("Error fetching users: \(error)")
@@ -88,16 +94,21 @@ class UserController {
                 print("All Users: \(allUsers)")
                 print("user: \(user)")
                 // Checks if user already exists and returns if they do exist
+                var userToReturn = User(identifier: UUID(), username: "", password: "", isLandOwner: true)
                 for potentialUser in allUsers {
                     if potentialUser.username == user.username && potentialUser.password == user.password {
                         userExists = true
+                        userToReturn = potentialUser
+                        print("Matching user found: \(userToReturn)")
                     }
                 }
-                
+
                 if userExists {
                     print("User already exists ()")
                     DispatchQueue.main.async {
                         completion(.failure(.existingUser))
+                        globalUser = userToReturn
+                        print("GlobalUser now: \(globalUser)")
                         return
                     }
                     return

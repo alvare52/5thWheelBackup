@@ -15,6 +15,7 @@ class RVOwnerListingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "\(globalUser.username) \'s Reservations"
     }
 
     // MARK: - Table view data source

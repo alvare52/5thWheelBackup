@@ -16,6 +16,7 @@ enum LoginType {
 class LoginViewController: UIViewController {
 
     var loginType = LoginType.signUp
+    var logInAsLandOwner = true
     var userController = UserController()
     var alerter = AlertMaker()
 
@@ -28,11 +29,47 @@ class LoginViewController: UIViewController {
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         print("signInButtonTapped")
         signInButtonLabel.performFlare()
-        if loginType == .signUp {
-            performSegue(withIdentifier: "PresentLandOwnerSegue", sender: self)
-        } else {
-            performSegue(withIdentifier: "PresentRVOwnerSegue", sender: self)
+
+        guard let username = usernameTextField.text, let password = passwordTextField.text,
+            !username.isEmpty, !password.isEmpty else { return }
+        // LAND OWNER FIRST
+        let user = User(identifier: UUID(),
+                        username: username,
+                        password: password,
+                        isLandOwner: logInAsLandOwner)
+        userController.checkIfUserExists(user: user) { (result) in
+            do {
+                let message = try result.get()
+                print(message)
+                DispatchQueue.main.async {
+                    print("SUCCESS signing up: \(user)")
+                    // Assign global user to the user that has successfully signed in/up
+                    globalUser = user
+                    globalUser.isLandOwner ? self.goToLandOwnerScreen() : self.goToRVOwnerScreen()
+                    self.alerter.makeAlert(viewController: self,
+                                           title: "Sign Up Success",
+                                           message: "You have successfully signed up")
+                    
+                }
+            } catch {
+                if let error = error as? NetworkError {
+                    switch error {
+                    case .existingUser:
+                        print("User already exist: ")
+                        DispatchQueue.main.async {
+                            print("user exists, logging in anyways")
+                            globalUser.isLandOwner ? self.goToLandOwnerScreen() : self.goToRVOwnerScreen()
+                            self.alerter.makeAlert(viewController: self,
+                                                   title: "Error Signing Up",
+                                                   message: "This username and password already exists")
+                        }
+                    default:
+                        print("Generic Error in LIVC")
+                    }
+                }
+            }
         }
+
     }
 
     @IBAction func signInSegmentControlChanged(_ sender: UISegmentedControl) {
@@ -44,47 +81,40 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func ownerTypeSegmentChanged(_ sender: UISegmentedControl) {
+        // Land Owner
+        if sender.selectedSegmentIndex == 0 {
+            logInAsLandOwner = true
+            print("Land Owner")
+        } else {
+            // RV Owner
+            logInAsLandOwner = false
+            print("RV Owner")
+        }
     }
 
     @IBAction func skipButtonTapped(_ sender: UIButton) {
+        print("skip button tapped")
         signInButtonLabel.performFlare()
-        //dismiss(animated: true, completion: nil)
-
-        guard let username = usernameTextField.text, let password = passwordTextField.text,
-            !username.isEmpty, !password.isEmpty else { return }
-        // LAND OWNER FIRST
-        let user = User(identifier: UUID(), username: username, password: password, isLandOwner: true)
-        userController.checkIfUserExists(user: user) { (result) in
-            do {
-                let message = try result.get()
-                DispatchQueue.main.async {
-                    print("SUCCESS signing up: \(user)")
-                    self.alerter.makeAlert(viewController: self,
-                                           title: "Sign Up Success",
-                                           message: "You have successfully signed up")
-                }
-            } catch {
-                if let error = error as? NetworkError {
-                    switch error {
-                    case .existingUser:
-                        print("User already exist: ")
-                        DispatchQueue.main.async {
-                            print("user exists")
-                            self.alerter.makeAlert(viewController: self,
-                                                   title: "Error Signing Up",
-                                                   message: "This username and password already exists")
-                        }
-                    default:
-                        print("Generic Error in LIVC")
-                    }
-                }
-            }
+        if loginType == .signUp {
+            performSegue(withIdentifier: "PresentLandOwnerSegue", sender: self)
+        } else {
+            performSegue(withIdentifier: "PresentRVOwnerSegue", sender: self)
         }
+    }
+
+    /// Performs segue to Land Owner Listings
+    func goToLandOwnerScreen() {
+        performSegue(withIdentifier: "PresentLandOwnerSegue", sender: self)
+    }
+
+    /// Performs segue to RV Owner Reservations
+    func goToRVOwnerScreen() {
+        performSegue(withIdentifier: "PresentRVOwnerSegue", sender: self)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("GLOBAL USER: \(globalUser)")
         // Do any additional setup after loading the view.
     }
     func changeToSignUp() {

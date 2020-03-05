@@ -35,6 +35,7 @@ class ListingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "\(globalUser.username)\'s Listings"
     }
 
     // MARK: - Table view data source

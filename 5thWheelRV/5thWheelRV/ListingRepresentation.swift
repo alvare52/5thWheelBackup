@@ -17,5 +17,5 @@ struct ListingRepresentation: Codable {
     var identifier: UUID?
 //    var reserved: Bool
 //    var date: Date
-//    var userID: String?
+    var userId: UUID
 }

@@ -21,7 +21,8 @@ extension Listing {
                                      notes: notes,
                                      price: price,
                                      photo: photo,
-                                     identifier: identifier)
+                                     identifier: identifier,
+                                     userId: globalUser.identifier)
     }
     /// This is for creating a new managed object in Core Data
     @discardableResult convenience init(location: String,
@@ -29,6 +30,7 @@ extension Listing {
                                         price: Float,
                                         photo: String? = nil,
                                         identifier: UUID = UUID(),
+                                        userId: UUID,
                                         context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.location = location
@@ -36,6 +38,7 @@ extension Listing {
         self.price = price
         self.photo = photo
         self.identifier = identifier
+        self.userId = userId
     }
 
     /// This is for converting ListingRepresentation (comes from JSON) into a managed object for Core Data
@@ -49,6 +52,7 @@ extension Listing {
                   price: listingRepresentation.price,
                   photo: listingRepresentation.photo,
                   identifier: identifier,
+                  userId: globalUser.identifier,
                   context: context)
     }
 }

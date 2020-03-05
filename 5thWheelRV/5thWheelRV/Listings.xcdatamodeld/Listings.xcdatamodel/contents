@@ -6,8 +6,9 @@
         <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="photo" optional="YES" attributeType="String"/>
         <attribute name="price" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="userId" attributeType="UUID" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="Listing" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Listing" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>

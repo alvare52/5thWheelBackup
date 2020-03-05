@@ -38,9 +38,13 @@ class DetailViewController: UIViewController {
                                           photo: "photo",
                                           listing: existingListing)
             }
-            // If there is NO plant (add)
+            // If there is NO listing (add)
             else {
-                let newListing = Listing(location: location, notes: notes, price: Float(price)!)
+                // NEW (puts to /listings/)
+                let newListing = Listing(location: location,
+                                         notes: notes,
+                                         price: Float(price)!,
+                                         userId: globalUser.identifier)
                 listingController?.sendListingToServer(listing: newListing)
                 // Save
                 do {
