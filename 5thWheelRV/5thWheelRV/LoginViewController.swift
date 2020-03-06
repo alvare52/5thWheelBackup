@@ -117,6 +117,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("GLOBAL USER: \(globalUser)")
+        signInButtonLabel.layer.cornerRadius = 6.9
         // Do any additional setup after loading the view.
     }
     func changeToSignUp() {

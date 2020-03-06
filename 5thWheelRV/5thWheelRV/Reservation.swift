@@ -15,6 +15,8 @@ struct Reservation: Codable {
     var identifier: UUID
     var isReserved: Bool
     var reservedDate: Date
+    var price: Float
+    var location: String
 }
 
 struct User: Codable {

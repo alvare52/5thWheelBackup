@@ -13,7 +13,9 @@ class ReservationController {
 
     typealias CompletionHandler = (Error?) -> Void
 
+    var reservationsArray: [Reservation] = []
     var searchResultsArray: [ListingRepresentation] = []
+
     init() {
         //fetchListingsFromServer()
     }

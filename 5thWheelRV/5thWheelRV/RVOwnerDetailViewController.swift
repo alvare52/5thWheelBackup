@@ -9,22 +9,39 @@
 import UIKit
 
 class RVOwnerDetailViewController: UIViewController {
-    
+
     @IBOutlet weak var listingImageView: UIImageView!
-    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var reserveButtonLabel: UIButton!
-    
-    
+    @IBOutlet weak var textView: UITextView!
+
+    /// Check to see to disable button and picker (or hide them)
+    var viewModeOn = false
+    var reservationController: ReservationController?
+    var listingRep: ListingRepresentation? {
+        didSet {
+            updateViews()
+        }
+    }
     @IBAction func reserveButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-    
+
+    func updateViews() {
+        print("updateViews")
+        guard isViewLoaded else {return}
+
+        title = listingRep?.location ?? "Listing"
+        //if let price = listing?.price {  }
+        priceLabel.text = "Price per day: $\(listingRep?.price ?? 0) - (no refunds)"
+        textView.text = listingRep?.notes ?? ""
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        reserveButtonLabel.layer.cornerRadius = 6.9
+        updateViews()
     }
 
     /*

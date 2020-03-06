@@ -74,7 +74,7 @@ class DetailViewController: UIViewController {
         //if let price = listing?.price {  }
         priceTextField.text = "\(listing?.price ?? 0)"
         notesTextView.text = listing?.notes ?? ""
-        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

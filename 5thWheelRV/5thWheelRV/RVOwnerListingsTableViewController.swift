@@ -12,6 +12,8 @@ import UIKit
 // EditReservationSegue
 // SearchResultsCell (other tvc)
 class RVOwnerListingsTableViewController: UITableViewController {
+    
+    let reservationController = ReservationController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +27,16 @@ class RVOwnerListingsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return reservationController.reservationsArray.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReservationCell", for: indexPath)
 
-        // Configure the cell...
+        let result = reservationController.reservationsArray[indexPath.row]
+        cell.textLabel?.text = result.location
+        cell.detailTextLabel?.text = "$\(result.price)"
+        cell.accessoryType = .disclosureIndicator
 
         return cell
     }
@@ -40,7 +45,15 @@ class RVOwnerListingsTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
+        // RVOwnerDetailViewController (to VIEW/ADD listing)
+        if segue.identifier == "EditReservationSegue" {
+            print("EditReservationSegue")
+            if let detailVC = segue.destination as? RVOwnerDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow {
+                detailVC.reservationController = self.reservationController
+                detailVC.listingRep = reservationController.searchResultsArray[indexPath.row]
+            }
+        }
     }
 
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// ViewListingSegue
 class SearchResultsTableViewController: UITableViewController {
 
     var reservationController = ReservationController()
@@ -30,10 +31,9 @@ class SearchResultsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultsCell", for: indexPath)
 
-        // Configure the cell...
         let result = reservationController.searchResultsArray[indexPath.row]
         cell.textLabel?.text = result.location
-        cell.detailTextLabel?.text = "\(result.price)"
+        cell.detailTextLabel?.text = "$\(result.price)"
         cell.accessoryType = .disclosureIndicator
 
         return cell
@@ -43,22 +43,27 @@ class SearchResultsTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        // DetailViewController (to ADD plant)
+//        if segue.identifier == "AddListingSegue" {
+//            print("AddListingSegue")
+//            if let detailVC = segue.destination as? DetailViewController {
+//                    detailVC.listingController = self.listingController
+//                }
+//            }
+        // RVOwnerDetailViewController (to VIEW/ADD listing)
+        if segue.identifier == "ViewListingSegue" {
+            print("ViewListingSegue")
+            if let detailVC = segue.destination as? RVOwnerDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow {
+                detailVC.reservationController = self.reservationController
+                detailVC.listingRep = reservationController.searchResultsArray[indexPath.row]
+            }
+        }
     }
 
 }
 
 extension SearchResultsTableViewController: UISearchBarDelegate {
-    // Perform search when "Return" is pressed in searchBar
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        guard let searchTerm = searchBar.text, !searchTerm.isEmpty else {return}
-//        reservationController.fetchAllListings(with: searchTerm) { (_) in
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
-//        }
-//    }
     // Searches everytime the searchbar text changes
     func searchBar(_ searchBar: UISearchBar,
                    textDidChange searchText: String) {
@@ -69,14 +74,13 @@ extension SearchResultsTableViewController: UISearchBarDelegate {
             }
         }
     }
-//    func searchBar(_ searchBar: UISearchBar,
-//                   shouldChangeTextIn range: NSRange,
-//                   replacementText text: String) -> Bool {
-//        let oldText = searchBar.text!
-//        let stringRange = Range(range, in: oldText)!
-//        let newText = oldText.replacingCharacters(in: stringRange, with: text)
-//        //send new text to the determine strength method
-//        //checkStrength(pw: newText)
-//        return true
-//    }
+        // Perform search when "Return" is pressed in searchBar
+    //    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    //        guard let searchTerm = searchBar.text, !searchTerm.isEmpty else {return}
+    //        reservationController.fetchAllListings(with: searchTerm) { (_) in
+    //            DispatchQueue.main.async {
+    //                self.tableView.reloadData()
+    //            }
+    //        }
+    //    }
 }
