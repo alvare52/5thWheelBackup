@@ -11,6 +11,7 @@ import UIKit
 // SearchListingSegue
 // EditReservationSegue
 // SearchResultsCell (other tvc)
+// ShowReservationSegue (modal)
 class RVOwnerListingsTableViewController: UITableViewController {
 
     let reservationController = ReservationController()
@@ -25,20 +26,21 @@ class RVOwnerListingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "\(globalUser.username) \'s Reservations"
+//        reservationController.fetchUsersReservations { (_) in
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         reservationController.fetchUsersReservations { (_) in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
-
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        DispatchQueue.main.async {
-//            self.tableView.reloadData()
-//        }
-//        //tableView.reloadData()
-//    }
 
     // MARK: - Table view data source
 
@@ -57,6 +59,7 @@ class RVOwnerListingsTableViewController: UITableViewController {
         cell.textLabel?.text = result.location
         cell.detailTextLabel?.text = "\(dateFormatter.string(from: result.reservedDate))"
         cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
 
         return cell
     }
@@ -66,14 +69,12 @@ class RVOwnerListingsTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // RVOwnerDetailViewController (to VIEW/ADD listing)
-        if segue.identifier == "EditReservationSegue" {
-            print("EditReservationSegue")
-            if let detailVC = segue.destination as? RVOwnerDetailViewController,
+        if segue.identifier == "ShowReservationSegue" {
+            print("ShowReservationSegue")
+            if let detailVC = segue.destination as? ShowReservationViewController,
                 let indexPath = tableView.indexPathForSelectedRow {
-                detailVC.reservationController = self.reservationController
-                detailVC.listingRep = reservationController.searchResultsArray[indexPath.row]
+                detailVC.reservation = reservationController.reservationsArray[indexPath.row]
             }
         }
     }
-
 }

@@ -26,7 +26,7 @@ class RVOwnerDetailViewController: UIViewController {
     }
     @IBAction func reserveButtonTapped(_ sender: UIButton) {
         guard let listingRep = listingRep else {return}
-        
+
         let newReservation = Reservation(userId: globalUser.identifier,
                                          listingId: listingRep.identifier ?? UUID(),
                                          identifier: UUID(),
@@ -36,7 +36,7 @@ class RVOwnerDetailViewController: UIViewController {
                                          location: listingRep.location,
                                          notes: listingRep.notes ?? "")
         reservationController?.sendReservationToServer(reservation: newReservation)
-        
+
         navigationController?.popViewController(animated: true)
     }
 

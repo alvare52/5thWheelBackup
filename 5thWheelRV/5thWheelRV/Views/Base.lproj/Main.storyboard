@@ -185,7 +185,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="9SX-QO-UCR" kind="show" identifier="EditReservationSegue" id="JXg-tQ-sec"/>
+                                    <segue destination="Boo-3o-Lk9" kind="presentation" identifier="ShowReservationSegue" id="hSX-xg-sTI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -205,6 +205,91 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oOW-lo-HjX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="287" y="785"/>
+        </scene>
+        <!--Show Reservation View Controller-->
+        <scene sceneID="JTX-rT-ZPb">
+            <objects>
+                <viewController id="Boo-3o-Lk9" customClass="ShowReservationViewController" customModule="_thWheelRV" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F9v-oh-Ila">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="losangeles" translatesAutoresizingMaskIntoConstraints="NO" id="iqh-Yy-Mvh">
+                                <rect key="frame" x="20" y="20" width="374" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="538-5Y-VDg"/>
+                                    <constraint firstAttribute="width" constant="374" id="JHK-9Z-23L"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BSg-e8-ZJA">
+                                <rect key="frame" x="20" y="268" width="374" height="330"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Los Angeles, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IUN-59-yBU">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price per day: $100.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V33-wH-oaV">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="23"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reservation Date: 1/11/20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1j-Gl-HQP">
+                                        <rect key="frame" x="0.0" y="56" width="374" height="23"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDa-u4-zq8">
+                                        <rect key="frame" x="0.0" y="84" width="374" height="193"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="19"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj9-pN-KNe">
+                                        <rect key="frame" x="0.0" y="282" width="374" height="48"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Got it"/>
+                                        <connections>
+                                            <action selector="buttonTapped:" destination="Boo-3o-Lk9" eventType="touchUpInside" id="hbX-ck-a7p"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="330" id="5Sq-Wm-2Ge"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BSg-e8-ZJA" firstAttribute="top" secondItem="iqh-Yy-Mvh" secondAttribute="bottom" constant="8" id="Oom-PP-a6I"/>
+                            <constraint firstItem="iqh-Yy-Mvh" firstAttribute="leading" secondItem="A4t-go-X1T" secondAttribute="leading" constant="20" id="SeW-fQ-AES"/>
+                            <constraint firstItem="A4t-go-X1T" firstAttribute="trailing" secondItem="BSg-e8-ZJA" secondAttribute="trailing" constant="20" id="afK-EB-YTh"/>
+                            <constraint firstItem="BSg-e8-ZJA" firstAttribute="leading" secondItem="A4t-go-X1T" secondAttribute="leading" constant="20" id="hWt-P3-g3b"/>
+                            <constraint firstItem="A4t-go-X1T" firstAttribute="trailing" secondItem="iqh-Yy-Mvh" secondAttribute="trailing" constant="20" id="nGD-QK-E2t"/>
+                            <constraint firstItem="iqh-Yy-Mvh" firstAttribute="top" secondItem="A4t-go-X1T" secondAttribute="top" constant="20" id="p9b-Pm-0U1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="A4t-go-X1T"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sLG-2R-Fx9"/>
+                    <connections>
+                        <outlet property="buttonLabel" destination="jj9-pN-KNe" id="bmm-IG-5KT"/>
+                        <outlet property="imageView" destination="iqh-Yy-Mvh" id="uTr-PM-PLJ"/>
+                        <outlet property="locationLabel" destination="IUN-59-yBU" id="zee-nc-KMl"/>
+                        <outlet property="notesTextView" destination="kDa-u4-zq8" id="U3Y-CH-JsZ"/>
+                        <outlet property="priceLabel" destination="V33-wH-oaV" id="ja5-QR-v5R"/>
+                        <outlet property="reservedDateLabel" destination="h1j-Gl-HQP" id="Ycx-1k-QNh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9YQ-IN-rs0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1118.840579710145" y="789.50892857142856"/>
         </scene>
         <!--Available Listing-->
         <scene sceneID="2rP-S3-cm1">
@@ -435,6 +520,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9O9-X6-P0g"/>
-        <segue reference="39U-l8-kt2"/>
     </inferredMetricsTieBreakers>
 </document>
