@@ -69,7 +69,7 @@ class ListingsTableViewController: UITableViewController {
         cell.accessoryType = .disclosureIndicator
         return cell
     }
-    
+
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView,
                             commit editingStyle: UITableViewCell.EditingStyle,
