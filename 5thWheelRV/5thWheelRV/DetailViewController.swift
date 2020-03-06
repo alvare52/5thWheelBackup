@@ -78,6 +78,7 @@ class DetailViewController: UIViewController {
         notesTextView.autocorrectionType = .no
         photoImageView.layer.cornerRadius = 6.9
         photoImageView.clipsToBounds = true
+        photoImageView.image = UIImage(named: stockPhotos.randomPhoto())
         priceTextField.clearsOnBeginEditing = true
         updateViews()
     }

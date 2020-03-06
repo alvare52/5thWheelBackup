@@ -21,7 +21,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5th Wheel RV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVS-0t-rP6">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.89303421969999996" green="0.13260403279999999" blue="0.13222166899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="prt-gj-Sed">
@@ -56,7 +56,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yG0-67-gtc">
                                         <rect key="frame" x="0.0" y="218" width="374" height="42"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.89303421969999996" green="0.13260403279999999" blue="0.13222166899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Sign Up"/>
@@ -66,12 +66,22 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wheelicon-1" translatesAutoresizingMaskIntoConstraints="NO" id="Le3-yi-Wdv">
+                                <rect key="frame" x="87" y="614" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="UbP-Fq-54u"/>
+                                    <constraint firstAttribute="width" constant="240" id="v1F-g2-66n"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Xb9-CS-Kdf" firstAttribute="trailing" secondItem="z4O-DU-J0Q" secondAttribute="trailing" constant="20" id="0lg-qE-lSf"/>
+                            <constraint firstItem="Le3-yi-Wdv" firstAttribute="leading" secondItem="Xb9-CS-Kdf" secondAttribute="leading" constant="87" id="Cik-jl-c22"/>
                             <constraint firstItem="z4O-DU-J0Q" firstAttribute="top" secondItem="Xb9-CS-Kdf" secondAttribute="top" constant="60" id="Sn0-Ts-HKR"/>
                             <constraint firstItem="z4O-DU-J0Q" firstAttribute="leading" secondItem="Xb9-CS-Kdf" secondAttribute="leading" constant="20" id="bIR-XH-oJy"/>
+                            <constraint firstItem="Le3-yi-Wdv" firstAttribute="top" secondItem="z4O-DU-J0Q" secondAttribute="bottom" constant="250" id="h5F-7n-ce0"/>
+                            <constraint firstItem="Xb9-CS-Kdf" firstAttribute="trailing" secondItem="Le3-yi-Wdv" secondAttribute="trailing" constant="87" id="zMm-gN-Jhw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xb9-CS-Kdf"/>
                     </view>
@@ -81,13 +91,14 @@
                         <outlet property="signInButtonLabel" destination="yG0-67-gtc" id="4rJ-vP-hNu"/>
                         <outlet property="signInSegmentControl" destination="ZFQ-As-ZNq" id="QYe-mh-jIh"/>
                         <outlet property="usernameTextField" destination="31r-cM-Xmv" id="yak-h3-mtJ"/>
+                        <outlet property="wheel" destination="Le3-yi-Wdv" id="DC9-Kc-xfk"/>
                         <segue destination="eVO-A9-Ujc" kind="presentation" identifier="PresentLandOwnerSegue" modalPresentationStyle="fullScreen" id="e3I-hy-0Or"/>
                         <segue destination="jT1-ex-EKm" kind="presentation" identifier="PresentRVOwnerSegue" modalPresentationStyle="fullScreen" id="pX9-5D-E4c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OvU-Hj-DNf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-565" y="392"/>
+            <point key="canvasLocation" x="-565.21739130434787" y="391.74107142857139"/>
         </scene>
         <!--Land Owner's Listings-->
         <scene sceneID="GyI-3m-rtj">
@@ -132,6 +143,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Land Owner's Listings" id="MB0-mm-XEu">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="2BA-N0-IUd">
+                            <connections>
+                                <segue destination="2RF-Qy-e10" kind="presentation" modalPresentationStyle="fullScreen" id="CJV-Lq-VZ8"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="duX-sg-rpM">
                             <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -187,6 +203,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="RV Owner's Listings" id="p4B-77-IrM">
+                        <barButtonItem key="leftBarButtonItem" title="Sign out" id="CO9-9m-spn">
+                            <connections>
+                                <segue destination="2RF-Qy-e10" kind="presentation" modalPresentationStyle="fullScreen" id="CgT-Sc-TYn"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="JfY-xd-OwH">
                             <connections>
                                 <segue destination="wcN-iW-EDn" kind="show" identifier="SearchListingSegue" id="Q2d-4A-rUz"/>
@@ -551,8 +572,10 @@
         <image name="forestSS" width="6000" height="3375"/>
         <image name="losangeles" width="4032" height="3024"/>
         <image name="underwater" width="4000" height="3000"/>
+        <image name="wheelicon-1" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9O9-X6-P0g"/>
+        <segue reference="CJV-Lq-VZ8"/>
     </inferredMetricsTieBreakers>
 </document>

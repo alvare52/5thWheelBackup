@@ -48,7 +48,7 @@ class RVOwnerDetailViewController: UIViewController {
         title = listingRep?.location ?? "Listing"
         //if let price = listing?.price {  }
         let price = String(format: "$%.2f", listingRep?.price ?? 0)
-        priceLabel.text = "Price per day: $\(price) - (no refunds)"
+        priceLabel.text = "Price per day: \(price) - (no refunds)"
         textView.text = listingRep?.notes ?? ""
     }
 
@@ -58,6 +58,7 @@ class RVOwnerDetailViewController: UIViewController {
         reserveButtonLabel.layer.cornerRadius = 6.9
         listingImageView.layer.cornerRadius = 6.9
         listingImageView.clipsToBounds = true
+        listingImageView.image = UIImage(named: stockPhotos.randomPhoto())
         updateViews()
     }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreGraphics
 
 enum LoginType {
     case signUp
@@ -22,6 +23,7 @@ class LoginViewController: UIViewController {
     var userController = UserController()
     var alerter = AlertMaker()
 
+    @IBOutlet weak var wheel: UIImageView!
     @IBOutlet weak var ownerTypeSegmentControl: UISegmentedControl!
     @IBOutlet weak var signInSegmentControl: UISegmentedControl!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -105,11 +107,30 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
         print("GLOBAL USER: \(globalUser)")
         signInButtonLabel.layer.cornerRadius = 6.9
-        passwordTextField.isSecureTextEntry = true
-        // Do any additional setup after loading the view.
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        rotateWheel()
+    }
+
+    @objc func rotateWheel() {
+        print("spinning")
+        //rvView.center = view.center
+
+        UIView.animate(withDuration: 0.12, delay: 0, options: [.repeat], animations: {
+            self.wheel.transform = CGAffineTransform(rotationAngle: (360.0 * CGFloat(Double.pi)) / 360.0)
+            })
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        wheel.stopAnimating()
+    }
+
     func changeToSignUp() {
         signInSegmentControl.selectedSegmentIndex = 0
         loginType = .signUp
@@ -141,4 +162,29 @@ extension UIView {
                    animations: { flare() },
                    completion: { _ in UIView.animate(withDuration: 0.2) { unflare() }})
   }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+    public func textField(_ textField: UITextField,
+                          shouldChangeCharactersIn range: NSRange,
+                          replacementString string: String) -> Bool {
+        let oldText = textField.text!
+        let stringRange = Range(range, in: oldText)!
+        _ = oldText.replacingCharacters(in: stringRange, with: string)
+        //send new text to the determine strength method
+        //checkStrength(pw: newText)
+        print("typed")
+        UIView.animateKeyframes(withDuration: 0.4, delay: 0, options: [], animations: {
+
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
+                self.wheel.center = CGPoint(x: self.wheel.center.x, y: self.wheel.center.y - 30)
+            }
+
+            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.2) {
+                self.wheel.center = CGPoint(x: self.wheel.center.x, y: self.wheel.center.y + 30)
+            }
+        }, completion: nil)
+
+        return true
+    }
 }

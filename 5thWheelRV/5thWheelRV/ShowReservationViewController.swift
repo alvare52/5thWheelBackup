@@ -50,6 +50,7 @@ class ShowReservationViewController: UIViewController {
         updateViews()
         imageView.layer.cornerRadius = 6.9
         imageView.clipsToBounds = true
+        imageView.image = UIImage(named: stockPhotos.randomPhoto())
         buttonLabel.layer.cornerRadius = 6.9
     }
 }

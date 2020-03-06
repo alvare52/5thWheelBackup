@@ -35,3 +35,17 @@ struct AlertMaker {
         viewController.present(alertController, animated: true, completion: nil)
     }
 }
+
+/// Holds 10 photos and can return a random one
+struct StockPhotos {
+    var photos = ["cliff", "forestSS", "hills", "park", "skyline",
+                "underwater", "outskirts", "mountainlake", "country", "losangeles"]
+
+    func randomPhoto() -> String {
+        let index = Int.random(in: 0..<photos.count)
+        print("i = \(index), string = \(photos[index])")
+        return photos[index]
+    }
+}
+
+let stockPhotos = StockPhotos()

@@ -38,6 +38,7 @@ class WheelRVUITests: XCTestCase {
 
         let app = XCUIApplication()
         //let loginVC = LoginViewController()
+        //let listingController = ListingController()
         app.buttons["RV Owner"].tap()
         //app/*@START_MENU_TOKEN@*/.buttons["Sign Up"]/*[[".segmentedControls.buttons[\"Sign Up\"]",".buttons[\"Sign Up\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         //XCTAssertEquals(loginVC.loginType, LoginType.logIn)
