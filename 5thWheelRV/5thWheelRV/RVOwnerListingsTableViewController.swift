@@ -12,13 +12,33 @@ import UIKit
 // EditReservationSegue
 // SearchResultsCell (other tvc)
 class RVOwnerListingsTableViewController: UITableViewController {
-    
+
     let reservationController = ReservationController()
+
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        //formatter.dateFormat = "EEEE MMM d, h:mm a"
+        return formatter
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "\(globalUser.username) \'s Reservations"
+        reservationController.fetchUsersReservations { (_) in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
+
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        DispatchQueue.main.async {
+//            self.tableView.reloadData()
+//        }
+//        //tableView.reloadData()
+//    }
 
     // MARK: - Table view data source
 
@@ -35,7 +55,7 @@ class RVOwnerListingsTableViewController: UITableViewController {
 
         let result = reservationController.reservationsArray[indexPath.row]
         cell.textLabel?.text = result.location
-        cell.detailTextLabel?.text = "$\(result.price)"
+        cell.detailTextLabel?.text = "\(dateFormatter.string(from: result.reservedDate))"
         cell.accessoryType = .disclosureIndicator
 
         return cell
