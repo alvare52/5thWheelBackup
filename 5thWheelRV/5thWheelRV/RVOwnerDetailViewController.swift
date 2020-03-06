@@ -37,7 +37,8 @@ class RVOwnerDetailViewController: UIViewController {
                                          notes: listingRep.notes ?? "")
         reservationController?.sendReservationToServer(reservation: newReservation)
 
-        navigationController?.popViewController(animated: true)
+        //navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
 
     func updateViews() {
@@ -46,7 +47,8 @@ class RVOwnerDetailViewController: UIViewController {
 
         title = listingRep?.location ?? "Listing"
         //if let price = listing?.price {  }
-        priceLabel.text = "Price per day: $\(listingRep?.price ?? 0) - (no refunds)"
+        let price = String(format: "$%.2f", listingRep?.price ?? 0)
+        priceLabel.text = "Price per day: $\(price) - (no refunds)"
         textView.text = listingRep?.notes ?? ""
     }
 
@@ -54,6 +56,8 @@ class RVOwnerDetailViewController: UIViewController {
         super.viewDidLoad()
         datePicker.minimumDate = Date()
         reserveButtonLabel.layer.cornerRadius = 6.9
+        listingImageView.layer.cornerRadius = 6.9
+        listingImageView.clipsToBounds = true
         updateViews()
     }
 

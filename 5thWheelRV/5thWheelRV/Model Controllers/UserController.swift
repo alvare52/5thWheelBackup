@@ -67,9 +67,9 @@ class UserController {
     }
 
     /// Check if user already exists on server???
-    func checkIfUserExists(user: User, completion: @escaping (Result<String, NetworkError>) -> Void) {
+    func checkIfUserExists(user: User,
+                           completion: @escaping (Result<String, NetworkError>) -> Void) {
         let requestUrl = baseUrl.appendingPathComponent("users").appendingPathExtension("json")
-
         URLSession.shared.dataTask(with: requestUrl) { (data, _, error) in
             if let error = error {
                 print("Error fetching users: \(error)")
@@ -85,12 +85,9 @@ class UserController {
                 }
                 return
             }
-            let jsonDecoder = JSONDecoder()
             var userExists = false
             do {
-                let allUsers = Array(try jsonDecoder.decode([String: User].self,
-                                                                          from: data).values)
-                // Should use high order function to look up by key instead of looping through all
+                let allUsers = Array(try JSONDecoder().decode([String: User].self, from: data).values)
                 print("All Users: \(allUsers)")
                 print("user: \(user)")
                 // Checks if user already exists and returns if they do exist
@@ -102,7 +99,6 @@ class UserController {
                         print("Matching user found: \(userToReturn)")
                     }
                 }
-
                 if userExists {
                     print("User already exists ()")
                     DispatchQueue.main.async {
@@ -128,46 +124,3 @@ class UserController {
         }.resume()
     }
 }
-
-/*
- func fetchListingsFromServer(completion: @escaping CompletionHandler = { _ in }) {
-     let requestUrl = baseUrl.appendingPathExtension("json")
-
-     URLSession.shared.dataTask(with: requestUrl) { (data, _, error) in
-
-         if let error = error {
-             print("Error fetching listings: \(error)")
-             DispatchQueue.main.async {
-                 completion(error)
-             }
-             return
-         }
-
-         guard let data = data else {
-             print("No data return by data task")
-             DispatchQueue.main.async {
-                 completion(NSError())
-             }
-             return
-         }
-
-         let jsonDecoder = JSONDecoder()
-         jsonDecoder.dateDecodingStrategy = .iso8601
-
-         do {
-             let listingRepresentations = Array(try jsonDecoder.decode([String: ListingRepresentation].self,
-                                                                       from: data).values)
-             try self.updateListings(with: listingRepresentations)
-             DispatchQueue.main.async {
-                 completion(nil)
-             }
-         } catch {
-             print("Error decoding or storing listing representations: \(error)")
-             DispatchQueue.main.async {
-                 completion(error)
-             }
-         }
-
-     }.resume()
- }
- */

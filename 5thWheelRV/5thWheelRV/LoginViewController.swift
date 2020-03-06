@@ -93,17 +93,6 @@ class LoginViewController: UIViewController {
         }
     }
 
-    /// Delete this later
-    @IBAction func skipButtonTapped(_ sender: UIButton) {
-        print("skip button tapped")
-        signInButtonLabel.performFlare()
-        if loginType == .signUp {
-            performSegue(withIdentifier: "PresentLandOwnerSegue", sender: self)
-        } else {
-            performSegue(withIdentifier: "PresentRVOwnerSegue", sender: self)
-        }
-    }
-
     /// Performs segue to Land Owner Listings
     func goToLandOwnerScreen() {
         performSegue(withIdentifier: "PresentLandOwnerSegue", sender: self)
@@ -118,6 +107,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         print("GLOBAL USER: \(globalUser)")
         signInButtonLabel.layer.cornerRadius = 6.9
+        passwordTextField.isSecureTextEntry = true
         // Do any additional setup after loading the view.
     }
     func changeToSignUp() {

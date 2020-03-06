@@ -9,6 +9,7 @@
 import XCTest
 @testable import _thWheelRV
 
+// The warnings in here are hugged, and so is the @testable import 5thWheelRV
 class WheelRVUITests: XCTestCase {
 
     override func setUp() {
@@ -27,7 +28,7 @@ class WheelRVUITests: XCTestCase {
 
         let app = XCUIApplication()
         //let loginVC = LoginViewController()
-    app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".segmentedControls.buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         //app/*@START_MENU_TOKEN@*/.buttons["Sign Up"]/*[[".segmentedControls.buttons[\"Sign Up\"]",".buttons[\"Sign Up\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         //XCTAssertEquals(loginVC.loginType, LoginType.logIn)
         //XCTAssertTrue(loginVC.loginType == .logIn)

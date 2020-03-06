@@ -30,6 +30,7 @@ class DetailViewController: UIViewController {
             !location.isEmpty,
             !price.isEmpty,
             let notes = notesTextView.text {
+
             // If there is a listing, update (detail)
             if let existingListing = listing {
             listingController?.update(location: location,
@@ -37,6 +38,7 @@ class DetailViewController: UIViewController {
                                           price: Float(price)!,
                                           photo: "photo",
                                           listing: existingListing)
+                navigationController?.popViewController(animated: true)
             }
             // If there is NO listing (add)
             else {
@@ -45,23 +47,18 @@ class DetailViewController: UIViewController {
                                          notes: notes,
                                          price: Float(price)!,
                                          userId: globalUser.identifier)
+                // OLD
+                //listingController?.sendListingToServer(listing: newListing)
                 listingController?.sendListingToServer(listing: newListing)
+                navigationController?.popViewController(animated: true)
                 // Save
-                do {
-                    try CoreDataStack.shared.mainContext.save()
-                } catch {
-                    NSLog("Error saving managed object context: \(error)")
-                }
+//                do {
+//                    try CoreDataStack.shared.mainContext.save()
+//                } catch {
+//                    NSLog("Error saving managed object context: \(error)")
+//                }
             }
-            navigationController?.popViewController(animated: true)
-        }
-        // One field is empty
-        else {
-            let alertController = UIAlertController(title: "Invalid Field",
-                                                    message: "Please fill in all fields", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(alertAction)
-            self.present(alertController, animated: true, completion: nil)
+            //navigationController?.popViewController(animated: true)
         }
     }
 
@@ -71,8 +68,7 @@ class DetailViewController: UIViewController {
 
         title = listing?.location ?? "Add New Listing"
         locationTextField.text = listing?.location ?? ""
-        //if let price = listing?.price {  }
-        priceTextField.text = "\(listing?.price ?? 0)"
+        priceTextField.text = String(format: "$%.2f", listing?.price ?? 0)
         notesTextView.text = listing?.notes ?? ""
     }
 
@@ -80,6 +76,9 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         locationTextField.autocorrectionType = .no
         notesTextView.autocorrectionType = .no
+        photoImageView.layer.cornerRadius = 6.9
+        photoImageView.clipsToBounds = true
+        priceTextField.clearsOnBeginEditing = true
         updateViews()
     }
 }

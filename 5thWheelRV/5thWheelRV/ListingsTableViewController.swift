@@ -14,6 +14,7 @@ class ListingsTableViewController: UITableViewController {
 
     lazy var fetchedResultsController: NSFetchedResultsController<Listing> = {
         let fetchRequest: NSFetchRequest<Listing> = Listing.fetchRequest()
+
         // NEW (This fucking part right here though)
         let test = globalUser.identifier
         // Only fetch listings that belong to the signed in land owner
@@ -47,6 +48,12 @@ class ListingsTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        // NEW
+//        listingController.fetchUsersListings { (_) in
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }
     }
 
     // MARK: - Table view data source
@@ -65,7 +72,7 @@ class ListingsTableViewController: UITableViewController {
         let testCell = fetchedResultsController.object(at: indexPath)
         guard let location = testCell.location else { return cell }
         cell.textLabel?.text = location
-        cell.detailTextLabel?.text = "\(testCell.price)"
+        cell.detailTextLabel?.text = String(format: "$%.2f", testCell.price)
         cell.accessoryType = .disclosureIndicator
         return cell
     }

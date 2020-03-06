@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z4O-DU-J0Q">
-                                <rect key="frame" x="20" y="104" width="374" height="298"/>
+                                <rect key="frame" x="20" y="104" width="374" height="260"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5th Wheel RV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVS-0t-rP6">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
@@ -62,14 +62,6 @@
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
                                             <action selector="signInButtonTapped:" destination="2RF-Qy-e10" eventType="touchUpInside" id="W5m-Py-utf"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8t-jN-DkW">
-                                        <rect key="frame" x="0.0" y="268" width="374" height="30"/>
-                                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Skip this step"/>
-                                        <connections>
-                                            <action selector="skipButtonTapped:" destination="2RF-Qy-e10" eventType="touchUpInside" id="2jW-2i-CLk"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -140,8 +132,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Land Owner's Listings" id="MB0-mm-XEu">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="person.fill" catalog="system" id="5db-tY-UEN"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="duX-sg-rpM">
+                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="6KL-KF-jJP" kind="show" identifier="AddListingSegue" id="gfr-L2-3aV"/>
                             </connections>
@@ -214,7 +206,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="losangeles" translatesAutoresizingMaskIntoConstraints="NO" id="iqh-Yy-Mvh">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="forestSS" translatesAutoresizingMaskIntoConstraints="NO" id="iqh-Yy-Mvh">
                                 <rect key="frame" x="20" y="20" width="374" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="538-5Y-VDg"/>
@@ -299,50 +291,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price per day: $" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SG-Am-URU">
-                                <rect key="frame" x="20" y="389" width="374" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="oLS-Wv-Vw6">
-                                <rect key="frame" x="0.0" y="521" width="414" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </datePicker>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="losangeles" translatesAutoresizingMaskIntoConstraints="NO" id="Dtm-Rx-ueg">
-                                <rect key="frame" x="20" y="141" width="374" height="240"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="losangeles" translatesAutoresizingMaskIntoConstraints="NO" id="Dtm-Rx-ueg">
+                                <rect key="frame" x="20" y="140" width="374" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="Cjt-Sm-tpl"/>
+                                    <constraint firstAttribute="width" constant="374" id="rvi-Tm-jqt"/>
+                                </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4mP-pc-mAl">
-                                <rect key="frame" x="20" y="422" width="374" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia de</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose Reservation Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQg-VO-G53">
-                                <rect key="frame" x="20" y="492" width="374" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0C-Sj-1dU">
-                                <rect key="frame" x="20" y="745" width="374" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Reserve Now"/>
-                                <connections>
-                                    <action selector="reserveButtonTapped:" destination="9SX-QO-UCR" eventType="touchUpInside" id="Seg-Ht-vUE"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lAQ-hU-Egv">
+                                <rect key="frame" x="20" y="388" width="374" height="394"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price per day: $" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SG-Am-URU">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4mP-pc-mAl">
+                                        <rect key="frame" x="0.0" y="28.5" width="374" height="62"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia de</string>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Reservation Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQg-VO-G53">
+                                        <rect key="frame" x="0.0" y="98.5" width="374" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="oLS-Wv-Vw6">
+                                        <rect key="frame" x="0.0" y="128" width="374" height="216"/>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0C-Sj-1dU">
+                                        <rect key="frame" x="0.0" y="352" width="374" height="42"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Reserve Now"/>
+                                        <connections>
+                                            <action selector="reserveButtonTapped:" destination="9SX-QO-UCR" eventType="touchUpInside" id="Seg-Ht-vUE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="394" id="l63-ca-vNL"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Wv-S4-efY" firstAttribute="trailing" secondItem="lAQ-hU-Egv" secondAttribute="trailing" constant="20" id="6v5-k0-iLn"/>
+                            <constraint firstItem="Dtm-Rx-ueg" firstAttribute="top" secondItem="6Wv-S4-efY" secondAttribute="top" id="C5R-Sf-XCI"/>
+                            <constraint firstItem="6Wv-S4-efY" firstAttribute="trailing" secondItem="Dtm-Rx-ueg" secondAttribute="trailing" constant="20" id="Y9I-rL-Tiw"/>
+                            <constraint firstItem="lAQ-hU-Egv" firstAttribute="leading" secondItem="6Wv-S4-efY" secondAttribute="leading" constant="20" id="aV2-gT-k90"/>
+                            <constraint firstItem="lAQ-hU-Egv" firstAttribute="top" secondItem="Dtm-Rx-ueg" secondAttribute="bottom" constant="8" id="dIl-u0-HQy"/>
+                            <constraint firstItem="lAQ-hU-Egv" firstAttribute="top" secondItem="Dtm-Rx-ueg" secondAttribute="bottom" constant="8" id="mbD-Mn-Ntf"/>
+                            <constraint firstItem="Dtm-Rx-ueg" firstAttribute="leading" secondItem="6Wv-S4-efY" secondAttribute="leading" constant="20" id="teC-bt-zfN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Wv-S4-efY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Available Listing" id="A5N-BO-PEI"/>
@@ -422,44 +429,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location: ex Los Angleles, CA" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pfa-za-fge">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location: ex Los Angleles, CA" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pfa-za-fge">
                                 <rect key="frame" x="20" y="140" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="100.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Heq-3Z-Q7i">
-                                <rect key="frame" x="154" y="182" width="240" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="100.00" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Heq-3Z-Q7i">
+                                <rect key="frame" x="148.5" y="182" width="245.5" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EGC-Nj-GbW">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="EGC-Nj-GbW">
                                 <rect key="frame" x="20" y="224" width="374" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="YoF-ss-X49"/>
+                                </constraints>
                                 <string key="text">This is the description of the listing that the owner has put up. This is the description of the listing that the owner has put up. This is the description of the listing the owner has put up</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price per day: $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7e-BH-ATr">
-                                <rect key="frame" x="20" y="182" width="126" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price per day: $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7e-BH-ATr">
+                                <rect key="frame" x="20" y="182" width="120.5" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="underwater" translatesAutoresizingMaskIntoConstraints="NO" id="KcA-Ym-3GQ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="underwater" translatesAutoresizingMaskIntoConstraints="NO" id="KcA-Ym-3GQ">
                                 <rect key="frame" x="20" y="328" width="374" height="240"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="5uz-6l-zW3"/>
+                                    <constraint firstAttribute="width" constant="374" id="cGS-ld-Ttg"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="g6Z-Dr-FjO" firstAttribute="trailing" secondItem="pfa-za-fge" secondAttribute="trailing" constant="20" id="0Jo-wF-HRu"/>
+                            <constraint firstItem="EGC-Nj-GbW" firstAttribute="leading" secondItem="g6Z-Dr-FjO" secondAttribute="leading" constant="20" id="6Kh-6E-VLe"/>
+                            <constraint firstItem="KcA-Ym-3GQ" firstAttribute="leading" secondItem="g6Z-Dr-FjO" secondAttribute="leading" constant="20" id="6MY-1W-Kok"/>
+                            <constraint firstItem="g6Z-Dr-FjO" firstAttribute="trailing" secondItem="EGC-Nj-GbW" secondAttribute="trailing" constant="20" id="6cl-Xi-vRZ"/>
+                            <constraint firstItem="pfa-za-fge" firstAttribute="top" secondItem="g6Z-Dr-FjO" secondAttribute="top" id="8Hf-gR-5Yk"/>
+                            <constraint firstItem="Heq-3Z-Q7i" firstAttribute="top" secondItem="pfa-za-fge" secondAttribute="bottom" constant="8" id="Kqv-bt-sEs"/>
+                            <constraint firstItem="KcA-Ym-3GQ" firstAttribute="top" secondItem="EGC-Nj-GbW" secondAttribute="bottom" constant="8" id="L2R-B1-qLP"/>
+                            <constraint firstItem="EGC-Nj-GbW" firstAttribute="top" secondItem="t7e-BH-ATr" secondAttribute="bottom" constant="8" id="L9w-bB-gat"/>
+                            <constraint firstItem="t7e-BH-ATr" firstAttribute="top" secondItem="pfa-za-fge" secondAttribute="bottom" constant="8" id="OW5-ev-P3d"/>
+                            <constraint firstItem="Heq-3Z-Q7i" firstAttribute="top" secondItem="pfa-za-fge" secondAttribute="bottom" constant="8" id="QLb-nX-0QT"/>
+                            <constraint firstItem="Heq-3Z-Q7i" firstAttribute="leading" secondItem="t7e-BH-ATr" secondAttribute="trailing" constant="8" id="RRq-TC-ZIV"/>
+                            <constraint firstItem="KcA-Ym-3GQ" firstAttribute="top" secondItem="EGC-Nj-GbW" secondAttribute="bottom" constant="8" id="diE-7b-wgn"/>
+                            <constraint firstItem="g6Z-Dr-FjO" firstAttribute="trailing" secondItem="Heq-3Z-Q7i" secondAttribute="trailing" constant="20" id="gES-1H-F5S"/>
+                            <constraint firstItem="pfa-za-fge" firstAttribute="leading" secondItem="g6Z-Dr-FjO" secondAttribute="leading" constant="20" id="iQx-KB-pM3"/>
+                            <constraint firstItem="g6Z-Dr-FjO" firstAttribute="trailing" secondItem="KcA-Ym-3GQ" secondAttribute="trailing" constant="20" id="j01-It-w7K"/>
+                            <constraint firstItem="Heq-3Z-Q7i" firstAttribute="leading" secondItem="t7e-BH-ATr" secondAttribute="trailing" constant="8" id="pD7-Kb-6Z8"/>
+                            <constraint firstItem="t7e-BH-ATr" firstAttribute="leading" secondItem="g6Z-Dr-FjO" secondAttribute="leading" constant="20" id="s8z-2t-qfL"/>
+                            <constraint firstItem="EGC-Nj-GbW" firstAttribute="top" secondItem="Heq-3Z-Q7i" secondAttribute="bottom" constant="8" id="syS-X7-cCo"/>
+                            <constraint firstItem="EGC-Nj-GbW" firstAttribute="top" secondItem="Heq-3Z-Q7i" secondAttribute="bottom" constant="8" id="z4Q-Ey-48m"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="g6Z-Dr-FjO"/>
                     </view>
                     <navigationItem key="navigationItem" title="Listing" id="o6a-7P-V7p">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="r6D-K4-Akg">
+                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="saveTapped:" destination="6KL-KF-jJP" id="0ux-UH-EVc"/>
                             </connections>
@@ -468,6 +499,7 @@
                     <connections>
                         <outlet property="locationTextField" destination="pfa-za-fge" id="QMu-4r-ydv"/>
                         <outlet property="notesTextView" destination="EGC-Nj-GbW" id="1rG-Zf-C2u"/>
+                        <outlet property="photoImageView" destination="KcA-Ym-3GQ" id="IV3-CJ-gCB"/>
                         <outlet property="priceTextField" destination="Heq-3Z-Q7i" id="FIM-RW-Wda"/>
                     </connections>
                 </viewController>
@@ -483,6 +515,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="y6N-2K-Ean">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -502,6 +535,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="q3r-Rb-qu9">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -514,8 +548,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="forestSS" width="6000" height="3375"/>
         <image name="losangeles" width="4032" height="3024"/>
-        <image name="person.fill" catalog="system" width="64" height="60"/>
         <image name="underwater" width="4000" height="3000"/>
     </resources>
     <inferredMetricsTieBreakers>

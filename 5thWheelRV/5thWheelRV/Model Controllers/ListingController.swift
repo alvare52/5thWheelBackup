@@ -27,7 +27,7 @@ class ListingController {
     func fetchUsersListings(completion: @escaping CompletionHandler = { _ in }) {
         var requestUrl = baseUrl.appendingPathComponent("listings")
         requestUrl = requestUrl.appendingPathExtension("json")
-        
+
         URLSession.shared.dataTask(with: requestUrl) { (data, _, error) in
 
             if let error = error {
@@ -103,7 +103,7 @@ class ListingController {
             do {
                 let listingRepresentations = Array(try jsonDecoder.decode([String: ListingRepresentation].self,
                                                                           from: data).values)
-                
+
                 try self.updateListings(with: listingRepresentations)
                 DispatchQueue.main.async {
                     completion(nil)
@@ -135,7 +135,7 @@ class ListingController {
         let fetchRequest: NSFetchRequest<Listing> = Listing.fetchRequest()
         // in order to be a part of the results (will only pull tasks that have a duplicate from fire base)
         fetchRequest.predicate = NSPredicate(format: "identifier IN %@", identifiersToFetch)
-    
+
         // create private queue context
         let context = CoreDataStack.shared.container.newBackgroundContext()
 
@@ -172,13 +172,13 @@ class ListingController {
     /// Send a created or updated listing to the server
     func sendListingToServer(listing: Listing, completion: @escaping CompletionHandler = { _ in }) {
         let uuid = listing.identifier ?? UUID()
-        
+
         // NEW
         var requestURL = baseUrl.appendingPathComponent("listings")
         requestURL = requestURL.appendingPathComponent(uuid.uuidString).appendingPathExtension("json")
         // OLD
         //let requestURL = baseUrl.appendingPathComponent(uuid.uuidString).appendingPathExtension("json")
-        
+
         print("requestURL = \(requestURL)")
         // changes back to requestURL
         var request = URLRequest(url: requestURL)
@@ -219,6 +219,8 @@ class ListingController {
                 completion(nil)
             }
         }.resume()
+        // NEW
+        saveListing()
     }
 
     /// Saves to Core Data

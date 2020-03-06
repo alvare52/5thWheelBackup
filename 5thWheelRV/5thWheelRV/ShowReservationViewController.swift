@@ -39,7 +39,8 @@ class ShowReservationViewController: UIViewController {
         guard isViewLoaded else {return}
 
         locationLabel.text = reservation?.location
-        priceLabel.text = "Price per day: $\(reservation?.price ?? 0)"
+        let price = String(format: "$%.2f", reservation?.price ?? 0)
+        priceLabel.text = "Price per day: \(price)"
         reservedDateLabel.text = "Reserved for: \(dateFormatter.string(from: reservation?.reservedDate ?? Date()))"
         notesTextView.text = reservation?.notes
     }
