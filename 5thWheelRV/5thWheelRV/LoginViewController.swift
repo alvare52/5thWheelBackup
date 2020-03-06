@@ -13,6 +13,8 @@ enum LoginType {
     case logIn
 }
 
+// Sign up / sign in don't do anything (don't need to)
+// Delete "Skip" button later
 class LoginViewController: UIViewController {
 
     var loginType = LoginType.signUp
@@ -44,24 +46,23 @@ class LoginViewController: UIViewController {
                 DispatchQueue.main.async {
                     print("SUCCESS signing up: \(user)")
                     // Assign global user to the user that has successfully signed in/up
+//                    self.alerter.makeAlert(viewController: self,
+//                    title: "Sign Up Success",
+//                    message: "You have successfully signed up")
                     globalUser = user
                     globalUser.isLandOwner ? self.goToLandOwnerScreen() : self.goToRVOwnerScreen()
-                    self.alerter.makeAlert(viewController: self,
-                                           title: "Sign Up Success",
-                                           message: "You have successfully signed up")
-                    
                 }
             } catch {
                 if let error = error as? NetworkError {
                     switch error {
                     case .existingUser:
-                        print("User already exist: ")
+                        print("LOG IN / EXISTING USER")
+//                        self.alerter.makeAlert(viewController: self,
+//                        title: "Error Signing Up",
+//                        message: "This username and password already exists")
                         DispatchQueue.main.async {
                             print("user exists, logging in anyways")
                             globalUser.isLandOwner ? self.goToLandOwnerScreen() : self.goToRVOwnerScreen()
-                            self.alerter.makeAlert(viewController: self,
-                                                   title: "Error Signing Up",
-                                                   message: "This username and password already exists")
                         }
                     default:
                         print("Generic Error in LIVC")
@@ -92,6 +93,7 @@ class LoginViewController: UIViewController {
         }
     }
 
+    /// Delete this later
     @IBAction func skipButtonTapped(_ sender: UIButton) {
         print("skip button tapped")
         signInButtonLabel.performFlare()

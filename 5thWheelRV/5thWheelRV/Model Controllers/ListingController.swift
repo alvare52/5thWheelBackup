@@ -17,11 +17,67 @@ class ListingController {
     typealias CompletionHandler = (Error?) -> Void
 
     init() {
-        fetchListingsFromServer()
+        // OLD
+        //fetchListingsFromServer()
+        // NEW
+        fetchUsersListings()
     }
 
+    /// Gets all listings belonging to signed in user (Land Owner)
+    func fetchUsersListings(completion: @escaping CompletionHandler = { _ in }) {
+        var requestUrl = baseUrl.appendingPathComponent("listings")
+        requestUrl = requestUrl.appendingPathExtension("json")
+        
+        URLSession.shared.dataTask(with: requestUrl) { (data, _, error) in
+
+            if let error = error {
+                print("Error fetching user listings: \(error)")
+                DispatchQueue.main.async {
+                    completion(error)
+                }
+                return
+            }
+
+            guard let data = data else {
+                print("No data return by data task")
+                DispatchQueue.main.async {
+                    completion(NSError())
+                }
+                return
+            }
+
+            let jsonDecoder = JSONDecoder()
+            jsonDecoder.dateDecodingStrategy = .iso8601
+
+            do {
+                let listingRepresentations = Array(try jsonDecoder.decode([String: ListingRepresentation].self,
+                                                                          from: data).values)
+
+                /// Go through all listings and returns an array made up of only the user's listings (userId)
+                let usersListings = listingRepresentations.filter { $0.userId == globalUser.identifier }
+                print("userListings = \(usersListings)")
+                // used to be with usersListings
+                try self.updateListings(with: listingRepresentations)
+                DispatchQueue.main.async {
+                    completion(nil)
+                }
+            } catch {
+                print("Error decoding or storing listing representations (fetchUsersListings): \(error)")
+                DispatchQueue.main.async {
+                    completion(error)
+                }
+            }
+
+        }.resume()
+    }
+
+    /// Gets ALL Listings from the server ( /listings ) (RV Owner)
     func fetchListingsFromServer(completion: @escaping CompletionHandler = { _ in }) {
-        let requestUrl = baseUrl.appendingPathExtension("json")
+        // OLD
+        //let requestUrl = baseUrl.appendingPathExtension("json")
+        // NEW
+        var requestUrl = baseUrl.appendingPathComponent("listings")
+        requestUrl = requestUrl.appendingPathExtension("json")
 
         URLSession.shared.dataTask(with: requestUrl) { (data, _, error) in
 
@@ -47,12 +103,13 @@ class ListingController {
             do {
                 let listingRepresentations = Array(try jsonDecoder.decode([String: ListingRepresentation].self,
                                                                           from: data).values)
+                
                 try self.updateListings(with: listingRepresentations)
                 DispatchQueue.main.async {
                     completion(nil)
                 }
             } catch {
-                print("Error decoding or storing listing representations: \(error)")
+                print("Error decoding or storing listing representations (fetchListingsFromServer): \(error)")
                 DispatchQueue.main.async {
                     completion(error)
                 }
@@ -78,7 +135,7 @@ class ListingController {
         let fetchRequest: NSFetchRequest<Listing> = Listing.fetchRequest()
         // in order to be a part of the results (will only pull tasks that have a duplicate from fire base)
         fetchRequest.predicate = NSPredicate(format: "identifier IN %@", identifiersToFetch)
-
+    
         // create private queue context
         let context = CoreDataStack.shared.container.newBackgroundContext()
 
@@ -190,8 +247,12 @@ class ListingController {
             completion(NSError())
             return
         }
+        // OLD
+        //let requestURL = baseUrl.appendingPathComponent(uuid.uuidString).appendingPathExtension("json")
+        // NEW
+        var requestURL = baseUrl.appendingPathComponent("listings")
+        requestURL = requestURL.appendingPathComponent(uuid.uuidString).appendingPathExtension("json")
 
-        let requestURL = baseUrl.appendingPathComponent(uuid.uuidString).appendingPathExtension("json")
         var request = URLRequest(url: requestURL)
         request.httpMethod = "DELETE"
 

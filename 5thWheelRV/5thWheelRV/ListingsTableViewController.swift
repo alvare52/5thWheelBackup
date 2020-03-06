@@ -14,14 +14,19 @@ class ListingsTableViewController: UITableViewController {
 
     lazy var fetchedResultsController: NSFetchedResultsController<Listing> = {
         let fetchRequest: NSFetchRequest<Listing> = Listing.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "price", ascending: true)]
+        // NEW (This fucking part right here though)
+        let test = globalUser.identifier
+        fetchRequest.predicate = NSPredicate(format: "userId == %@", test as CVarArg)
+
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "location", ascending: true)]
 
         let context = CoreDataStack.shared.mainContext
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: context,
-                                             sectionNameKeyPath: "price",
+                                             sectionNameKeyPath: "location",
                                              cacheName: nil)
         frc.delegate = self
+
         do {
             try frc.performFetch()
         } catch {
@@ -36,6 +41,11 @@ class ListingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "\(globalUser.username)\'s Listings"
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -81,7 +91,6 @@ class ListingsTableViewController: UITableViewController {
         }
     }
 
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -119,6 +128,7 @@ extension ListingsTableViewController: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
+
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                     didChange sectionInfo: NSFetchedResultsSectionInfo,
                     atSectionIndex sectionIndex: Int,
@@ -132,7 +142,11 @@ extension ListingsTableViewController: NSFetchedResultsControllerDelegate {
             break
         }
     }
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange anObject: Any, at indexPath: IndexPath?,
+                    for type: NSFetchedResultsChangeType,
+                    newIndexPath: IndexPath?) {
         switch type {
         case .insert:
             guard let newIndexPath = newIndexPath else { return }
