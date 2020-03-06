@@ -27,6 +27,7 @@
 		1BE77FDD241061CE0077B8D3 /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FDC241061CE0077B8D3 /* SearchResultsTableViewController.swift */; };
 		1BE77FDF2410987D0077B8D3 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FDE2410987D0077B8D3 /* Reservation.swift */; };
 		1BE77FE124109E3C0077B8D3 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FE024109E3C0077B8D3 /* UserController.swift */; };
+		1BE77FE32411F4000077B8D3 /* ReservationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE77FE22411F4000077B8D3 /* ReservationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		1BE77FDC241061CE0077B8D3 /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
 		1BE77FDE2410987D0077B8D3 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		1BE77FE024109E3C0077B8D3 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		1BE77FE22411F4000077B8D3 /* ReservationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationController.swift; sourceTree = "<group>"; };
 		351FE45F9330037E7AB361DF /* Pods-5thWheelRV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5thWheelRV.release.xcconfig"; path = "Target Support Files/Pods-5thWheelRV/Pods-5thWheelRV.release.xcconfig"; sourceTree = "<group>"; };
 		6A30E04C464BE7ED6CBCCB24 /* Pods_5thWheelRV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_5thWheelRV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA10721B09424D8DB1E8B4DE /* Pods-5thWheelRV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-5thWheelRV.debug.xcconfig"; path = "Target Support Files/Pods-5thWheelRV/Pods-5thWheelRV.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			children = (
 				1BE77FCE240ED50C0077B8D3 /* ListingController.swift */,
 				1BE77FE024109E3C0077B8D3 /* UserController.swift */,
+				1BE77FE22411F4000077B8D3 /* ReservationController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				1BE77FD72410472C0077B8D3 /* LoginViewController.swift in Sources */,
 				1BE77FD1240ED6CB0077B8D3 /* ListingRepresentation.swift in Sources */,
 				1BE77FD9241051FF0077B8D3 /* RVOwnerListingsTableViewController.swift in Sources */,
+				1BE77FE32411F4000077B8D3 /* ReservationController.swift in Sources */,
 				1BE77FE124109E3C0077B8D3 /* UserController.swift in Sources */,
 				1BE77FDF2410987D0077B8D3 /* Reservation.swift in Sources */,
 				1BE77FDB241061AE0077B8D3 /* RVOwnerDetailViewController.swift in Sources */,

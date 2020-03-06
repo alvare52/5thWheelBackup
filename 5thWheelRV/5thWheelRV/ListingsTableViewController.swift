@@ -16,6 +16,7 @@ class ListingsTableViewController: UITableViewController {
         let fetchRequest: NSFetchRequest<Listing> = Listing.fetchRequest()
         // NEW (This fucking part right here though)
         let test = globalUser.identifier
+        // Only fetch listings that belong to the signed in land owner
         fetchRequest.predicate = NSPredicate(format: "userId == %@", test as CVarArg)
 
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "location", ascending: true)]
@@ -70,7 +71,9 @@ class ListingsTableViewController: UITableViewController {
     }
     
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let listing = fetchedResultsController.object(at: indexPath)
             // delete from server first before we do local delete
@@ -79,7 +82,7 @@ class ListingsTableViewController: UITableViewController {
                     print("Error deleting listing from server: \(error)")
                     return
                 }
-                
+
                 CoreDataStack.shared.mainContext.delete(listing)
                 do {
                     try CoreDataStack.shared.mainContext.save()
